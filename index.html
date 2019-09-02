@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>easy-template.js</title>
+	</head>
+	<body>
+		<div id="wp"></div>
+		<script id="tpl" type="text/html">
+			<h2>easy-template.js</h2>
+			<h3>by --leeya</h3>
+			<%=data.newsTpl%><br/><br/>
+			<%for(i = 0; i < data.list.length; i++) {%>
+				<%=list[i].title%><br/>
+				<%=list[i].content%><br/>
+				<%=list[i].desc%><br/>
+			<%}%>
+        </script>
+
+		<script src="js/leeyaTemplate.js"></script>
+		<script>
+			let data = {
+				newsTpl: "hello world",
+				list: [{
+						title: '这是我的第一条数据',
+						content: '乌拉'
+					},
+					{
+						title: '这是我的第二条数据',
+						content: '呀哈'
+					},
+					{
+						title: '这是我的第三条数据',
+						content: '斯巴达'
+					},
+				]
+			}
+
+			var html = template.init(document.getElementById('tpl').innerHTML, data);
+			document.getElementById('wp').innerHTML = html;
+		</script>
+	</body>
+</html>
